@@ -27,16 +27,46 @@
 #    print(counter, end=' ')
 
  
-grades = [98, 76, 71, 87, 83, 90, 57, 79, 82, 94]  
-total = 0
-grade_Counter = 0
+# grades = [98, 76, 71, 87, 83, 90, 57, 79, 82, 94]  
+# total = 0
+# grade_Counter = 0
 
-for grade in grades:
-   total+=grade
-   grade_Counter += 1
+# for grade in grades:
+#    total+=grade
+#    grade_Counter += 1
 
-#Blaks lines are recommended above and below each control statement
-average = total/grade_Counter
-print('Class average is ', average)
+# #Blaks lines are recommended above and below each control statement
+# average = total/grade_Counter
+# print(f'Class average is {average}')
+
+# total = 0
+# grade_counter = 0
+
+# grade = int(input('Enter grade, -1 to end: '))
+
+# while grade != -1:
+#    total += grade
+#    grade_counter += 1
+#    grade = int(input('Enter grade, -1 to end: '))
+ 
+
+# if grade_counter != 0:
+#    average = total / grade_counter
+#    print(f'Class average is {average:.2f}')
+# else:
+#    print('No grades')
+
+#Range in deapth
+for number in range(5):
+   print(number, end=' ')
+print('\n')
+
+for number in range(5, 10):
+   print(number, end=' ')
+print('\n')
+
+for number in range(0, 10, 1):
+   print(number, end=' ')
+print('\n')
 
 
