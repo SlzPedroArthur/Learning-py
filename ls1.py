@@ -57,16 +57,50 @@
 #    print('No grades')
 
 #Range in deapth
-for number in range(5):
-   print(number, end=' ')
-print('\n')
+# for number in range(5):
+#    print(number, end=' ')
+# print('\n')
 
-for number in range(5, 10):
-   print(number, end=' ')
-print('\n')
+# for number in range(5, 10):
+#    print(number, end=' ')
+# print('\n')
 
-for number in range(0, 10, 1):
-   print(number, end=' ')
-print('\n')
+# for number in range(0, 10, 1):
+#    print(number, end=' ')
+# print('\n')
+
+#Decimal
+# amount = 112.12
+
+# print(f'{amount:.20f}')
+
+# #Exemplo: juros compostos
+# #a = p(1 + r)**n
+# from decimal import Decimal 
+
+# principal = Decimal('100.00')
+# rate = Decimal('3.65')
+
+# for year in range(1, 11):
+#    amount = principal * (1 + rate) ** year 
+#    print(f'{year:>2} {amount:<10.2f}')
+
+
+# #Mean, median and mode
+# grades = [98, 76, 71, 87, 83, 90, 57, 79, 82, 82, 94]  
+
+# sum(grades)/len(grades)
+
+# import statistics
+
+# print(f'{statistics.mean(grades):.3f} {statistics.median(grades)} {statistics.mode(grades)}')
+
+
+
+
+
+
+
+
 
 
