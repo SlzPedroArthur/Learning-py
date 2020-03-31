@@ -40,6 +40,3 @@ average = total/grade_Counter
 print('Class average is ', average)
 
 
-
-
-
