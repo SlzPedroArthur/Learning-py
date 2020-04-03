@@ -137,3 +137,49 @@
 
 # grades = [88, 75, 96, 55, 83]
 # print(f'{average(*grades):.3f}\n')
+
+# #Métodos: uma função que podemos chamar num objeto
+# #object_name.method_name(arguments)
+
+# s = 'Hei!'
+
+# s.lower()
+# s.upper()
+# print(s)
+
+# #Scopes
+# #Local scope: definida naquele bloco somente
+# #Global scope: pode ser usada em qualquer função ou classe
+
+# x = 21;
+
+# def access_global():
+#    print(f'Acessando x global: {x} \n') 
+
+# access_global()
+
+# def try_to_modify_global():
+#    x = 3.333  #Py criou uma variavel local 
+#    print(f'X de try_to_modify: {x}\n')
+
+# try_to_modify_global()
+
+# x = 44
+
+# try_to_modify_global()
+
+# access_global()
+
+# def modify():
+#    global x
+#    x = 9999
+#    print(f'{x}\n')
+
+# modify()
+
+# print(f'{x}\n')
+
+
+
+
+
