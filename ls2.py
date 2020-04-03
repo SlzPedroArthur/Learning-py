@@ -58,66 +58,82 @@
 #    print(random.randrange(1, 7), end=' ')
 # print('\n')
 
-#Craps
-import random
+# #Craps
+# import random
 
-def roll_dices():
-   die1 = random.randrange(1, 7)
-   die2 = random.randrange(1, 7)
-   return (die1, die2)
+# def roll_dices():
+#    die1 = random.randrange(1, 7)
+#    die2 = random.randrange(1, 7)
+#    return (die1, die2)
 
-def display_dices(dice):
-   die1, die2 = dice
-   print(f'Pontos do jogador: {die1} + {die2} = {sum(dice)}\n')
+# def display_dices(dice):
+#    die1, die2 = dice
+#    print(f'Pontos do jogador: {die1} + {die2} = {sum(dice)}\n')
 
-def first_round(game_status, my_points):
-   die_values = roll_dices()
-   display_dices(die_values)
+# def first_round(game_status, my_points):
+#    die_values = roll_dices()
+#    display_dices(die_values)
 
-   sum_dices = sum(die_values)
+#    sum_dices = sum(die_values)
 
-   if sum_dices in (7, 11):
-      game_status = 'VENCEU'
-   elif sum_dices in (2, 3, 12):
-      game_status = 'PERDEU'
-   else:
-      game_status = 'CONTINUE'
-      my_points =  sum_dices
+#    if sum_dices in (7, 11):
+#       game_status = 'VENCEU'
+#    elif sum_dices in (2, 3, 12):
+#       game_status = 'PERDEU'
+#    else:
+#       game_status = 'CONTINUE'
+#       my_points =  sum_dices
       
-   return my_points
+#    return my_points
 
-def other_rounds(game_status, my_points):
-   die_values = roll_dices()
-   display_dices(die_values)
+# def other_rounds(game_status, my_points):
+#    die_values = roll_dices()
+#    display_dices(die_values)
 
-   sum_dices = sum(die_values)
+#    sum_dices = sum(die_values)
 
-   if sum_dices == my_points:
-      game_status = 'VENCEU'
-   elif sum_dices == 7:
-      game_status = 'PERDEU'
-   return game_status
+#    if sum_dices == my_points:
+#       game_status = 'VENCEU'
+#    elif sum_dices == 7:
+#       game_status = 'PERDEU'
+#    return game_status
    
 
-option = int(input('Pressione 1 para jogar e 0 para sair\n'))
-my_points = 0
+# option = int(input('Pressione 1 para jogar e 0 para sair\n'))
+# my_points = 0
 
-while(option != 0):
-   game_status = 'CONTINUE'
-   my_points = 0
+# while(option != 0):
+#    game_status = 'CONTINUE'
+#    my_points = 0
 
-   my_points = first_round(game_status, my_points)
-   print(f'{game_status}\n')
+#    my_points = first_round(game_status, my_points)
+#    print(f'{game_status}\n')
 
-   while game_status == 'CONTINUE':
-      game_status = other_rounds(game_status, my_points)
+#    while game_status == 'CONTINUE':
+#       game_status = other_rounds(game_status, my_points)
         
    
-   if (game_status == 'VENCEU'):
-      print('Parabens! Você venceu!\n')
-   else:
-      print('Parabens! Você PERDEU!\n')
+#    if (game_status == 'VENCEU'):
+#       print('Parabens! Você venceu!\n')
+#    else:
+#       print('Parabens! Você PERDEU!\n')
 
-   option = int(input('Deseja jogar novamente?\n'))
+#    option = int(input('Deseja jogar novamente?\n'))
 
 
+# #Default parameter value
+
+# def rectangle_area(length = 2, width = 3):
+#    return length * width
+
+# print (f'{rectangle_area()} {rectangle_area(10)} {rectangle_area(1,4)}\n')
+
+# #Arbitrary argument list
+
+# def average(*args):
+#    return sum(args) / len(args)
+
+# print(f'{average(1, 4, 3, 3, 5, 3, 3):.3f}\n')
+
+# grades = [88, 75, 96, 55, 83]
+# print(f'{average(*grades):.3f}\n')
