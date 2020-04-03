@@ -95,8 +95,8 @@
 
 # print(f'{statistics.mean(grades):.3f} {statistics.median(grades)} {statistics.mode(grades)}')
 
-
-
+# #Para simplificar: import statistics as stats
+#Por segurança: from math import ceil, floor as mth
 
 
 

@@ -179,6 +179,38 @@
 
 # print(f'{x}\n')
 
+#Observação: caso eu utilize o nome de uma built-in function (eg. sum) como nome de variável, não poderei mais usar a função.
+
+# #Passando referencias
+# x = 4
+# print(f'\nId de x: {id(x)}')
+
+# def cube(number):
+#    print('\nid number before:', id(number))
+#    number **= 3
+#    print('\nid number after: ', id(number))
+
+#    return number
+
+# x = cube(x)
+
+# print(f'\nId de x: {id(x)}\n')
+
+# print(x)
+
+# #Recursão
+# #Indirect recursion
+# def factorial(number):
+#    if number != None and number > 0:
+#       if number <= 1:
+#          return 1
+#       return number * factorial(number -1)
+
+# input_number = int(input('\nInsira um número: '))
+# print(f'\nFatorial de {input_number} é : {factorial(input_number)}')      
+
+
+
 
 
 
