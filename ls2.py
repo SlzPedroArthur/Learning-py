@@ -64,7 +64,41 @@ import random
 def roll_dice():
    return random.randrange(1, 7)
 
-print("Pressione") 
+def roll_dices():
+   die1 = random.randrange(1, 7)
+   die2 = random.randrange(1, 7)
+   return (die1 + die2)
+
+def display_dices(dice):
+   die1, die2 = dice
+   print(f'Pontos do jogador {die1} + {die2} = {sum(dice)}')
+
+def first_round(dice1, dice2):
+   
+   points = roll_points() + roll_points() 
+   print('Seus pontos:', points)
+
+   if(points == 7 or points == 11):
+      print('Você ganhou\n')
+      return 0
+   elif (points == 2 or points == 3 or points == 13):
+      print('Você perdeu\n')
+      return 0
+   else:
+      
+      return points
+
+def other_rounds(points):
+   points += roll_points() + roll_points() 
+   print('Seus pontos:', points)
 
 
+option = input("Pressione 1 para jogar e 0 para sair\n")
+
+while(optiion != 0):
+   dice1 = roll_dice();
+   print("Primeiro dado: ", dice1)
+   input("Aperte qualquer tecla para continuar")
+   dice2 = roll_dice();
+   
 """specifying a custom funcion docstring"""
