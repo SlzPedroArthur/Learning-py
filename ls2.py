@@ -61,9 +61,6 @@
 #Craps
 import random
 
-def roll_dice():
-   return random.randrange(1, 7)
-
 def roll_dices():
    die1 = random.randrange(1, 7)
    die2 = random.randrange(1, 7)
@@ -71,34 +68,40 @@ def roll_dices():
 
 def display_dices(dice):
    die1, die2 = dice
-   print(f'Pontos do jogador {die1} + {die2} = {sum(dice)}')
+   print(f'Pontos do jogador {die1} + {die2} = {sum(dice)}\n')
 
-def first_round(dice1, dice2):
-   
-   points = roll_points() + roll_points() 
-   print('Seus pontos:', points)
+def first_round(game_status):
+   die_values = roll_dices()
+   display_dices(die_values)
 
-   if(points == 7 or points == 11):
-      print('Você ganhou\n')
-      return 0
-   elif (points == 2 or points == 3 or points == 13):
-      print('Você perdeu\n')
-      return 0
+   sum_dices = sum(die_values)
+
+   if sum_dices in (7, 11):
+      game_status = 'VENCEU'
+   elif sum_dices in (2, 3, 12):
+      game_status = 'PERDEU'
    else:
+      game_status = 'CONTINUE'
+      my_points =  sum_dices
       
-      return points
+   return my_points
 
-def other_rounds(points):
-   points += roll_points() + roll_points() 
-   print('Seus pontos:', points)
+def other_rounds(my_points):
+   die_values = roll_dices()
+   display_dice(die_values)
 
+   sum_dices = sum(die_values)
 
-option = input("Pressione 1 para jogar e 0 para sair\n")
+   if sum_dices == my_points:
+      game_status = 'VENCEU'
+   elif sum_dices == 7:
+      game_status = 'PERDEU'
 
-while(optiion != 0):
-   dice1 = roll_dice();
-   print("Primeiro dado: ", dice1)
-   input("Aperte qualquer tecla para continuar")
-   dice2 = roll_dice();
+option = int(input('Pressione 1 para jogar e 0 para sair'))
+game_status = 'CONTINUE'
+
+while(option != 0 and game_status == 'CONTINUE'):
+   first_round(game_status);
+
    
-"""specifying a custom funcion docstring"""
+
