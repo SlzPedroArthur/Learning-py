@@ -210,8 +210,37 @@
 # print(f'\nFatorial de {input_number} é : {factorial(input_number)}')      
 
 
+#Declarative proraming, immutability and interna interation
 
+#Measures of dispersion
+import statistics as sts
+import math 
 
+population = [1, 3, 4, 2, 6, 5, 3, 4, 5, 2]
 
+print(sts.mean(population))
+print('\n')
+#Deviation: 
+def mypVariance(population):
+   pVariance = 0
+   
+   for i in range(0, len(population)):
+      pVariance += pow(population[i] - sts.mean(population),2)
+   
+   pVariance = pVariance/len(population)
+
+   return pVariance
+
+print(sts.pvariance(population))
+print('\n')
+
+print(mypVariance(population))
+print('\n')
+ 
+
+#Calcula o desvio padrão da população
+print(sts.pstdev(population))
+print('\n')
+#O desvio padrão é a raiz quadrada da variação, isso dimiui o efeito dos valores exremos. Quanto menor a variação e o desvio padrão, mais próximo os valores dos dados estão da média e menor a dispersão geral entre os valores e amédia.
 
 
