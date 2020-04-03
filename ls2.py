@@ -64,13 +64,13 @@ import random
 def roll_dices():
    die1 = random.randrange(1, 7)
    die2 = random.randrange(1, 7)
-   return (die1 + die2)
+   return (die1, die2)
 
 def display_dices(dice):
    die1, die2 = dice
-   print(f'Pontos do jogador {die1} + {die2} = {sum(dice)}\n')
+   print(f'Pontos do jogador: {die1} + {die2} = {sum(dice)}\n')
 
-def first_round(game_status):
+def first_round(game_status, my_points):
    die_values = roll_dices()
    display_dices(die_values)
 
@@ -86,9 +86,9 @@ def first_round(game_status):
       
    return my_points
 
-def other_rounds(my_points):
+def other_rounds(game_status, my_points):
    die_values = roll_dices()
-   display_dice(die_values)
+   display_dices(die_values)
 
    sum_dices = sum(die_values)
 
@@ -96,12 +96,28 @@ def other_rounds(my_points):
       game_status = 'VENCEU'
    elif sum_dices == 7:
       game_status = 'PERDEU'
-
-option = int(input('Pressione 1 para jogar e 0 para sair'))
-game_status = 'CONTINUE'
-
-while(option != 0 and game_status == 'CONTINUE'):
-   first_round(game_status);
-
+   return game_status
    
+
+option = int(input('Pressione 1 para jogar e 0 para sair\n'))
+my_points = 0
+
+while(option != 0):
+   game_status = 'CONTINUE'
+   my_points = 0
+
+   my_points = first_round(game_status, my_points)
+   print(f'{game_status}\n')
+
+   while game_status == 'CONTINUE':
+      game_status = other_rounds(game_status, my_points)
+        
+   
+   if (game_status == 'VENCEU'):
+      print('Parabens! Você venceu!\n')
+   else:
+      print('Parabens! Você PERDEU!\n')
+
+   option = int(input('Deseja jogar novamente?\n'))
+
 
