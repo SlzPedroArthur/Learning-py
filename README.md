@@ -6,7 +6,7 @@
 Além disso, você pode encontrar todos os algoritmos eu acho importante de serem implementados em todas a novas linguagens que eu aprendo. 
 
 
-Instagram: @pedroartur.ia
+Instagram: @slzpedroarthur
 
 Email: slzpedroarthurcp@protonmail.com
 
