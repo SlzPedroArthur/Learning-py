@@ -108,23 +108,74 @@
 # numbers = []
 
 
-#Del statement
-numbers = list(range(0,   10))
+# #Del statement
+# numbers = list(range(0,   10))
 
-del numbers[-1]
-print(numbers)
+# del numbers[-1]
+# print(numbers)
 
-del numbers[0:2]
-print(numbers)
+# del numbers[0:2]
+# print(numbers)
 
-del numbers[::2]
-print(numbers)
+# del numbers[::2]
+# print(numbers)
 
-del numbers[:]
-print(numbers)
+# del numbers[:]
+# print(numbers)
 
-del numbers
-#print(numbers)
+# del numbers
+# #print(numbers)
+
+# #Sorting 
+# numbers = list(range(0,   10))
+
+# numbers.sort()
+# print(numbers)
+
+# numbers.sort(reverse=True)
+
+# ascending_numbers = sorted(numbers)
+
+# letters = 'asdkflqwekr'
+
+# ascending_letters = sorted(letters)
+
+# print(ascending_letters,ascending_numbers)
+
+# #Searching sequences
+
+# ##index: retorna o indice do primeiro elemento que encontrar
+# numbers = [2, 3, 4, 5, 3, 22, 7, 5]
+# print (numbers.index(5)) 
+
+# numbers *=2 #concatenando a lista nela mesma
+# print(numbers)
+
+# print (numbers.index(5, 7)) #busca '5' a partir do oitavo elemento
+
+# numbers.index(3, 0, 4) #busca '3' no intervalo entre o primeiro e o quinto elemento
+
+# #Automaticamente verifica a presença de um elemento na sequencia
+# print (1000 in numbers)
+# print (22 in numbers)
+# print (1000 not in numbers)
+
+# #Podemos usar o operador in para evitar erros
+# key = 22
+# if key in numbers:
+#    print(f'Found {key} at index {numbers.index(key)}')
+# else:
+#    print(f'{key} not found')
+
+#Outras funções uteis
+##insert
+color_names = ['orange', 'yellow', 'green']
+
+color_names.insert(0, 'red') #insere sem remover qualquer elemento
+
+color_names.append('gray') #concatena
+
+
 
 
 
