@@ -167,16 +167,33 @@
 # else:
 #    print(f'{key} not found')
 
-#Outras funções uteis
-##insert
-color_names = ['orange', 'yellow', 'green']
+# #Outras funções uteis
+# ##insert, append, extend
+# color_names = ['orange', 'yellow', 'green']
 
-color_names.insert(0, 'red') #insere sem remover qualquer elemento
+# color_names.insert(0, 'red') #insere sem remover qualquer elemento
+# print(color_names)
 
-color_names.append('gray') #concatena
+# color_names.append('gray') #concatena um elemento
+# print(color_names)
 
+# color_names.extend(['indigo', 'violet']) #junta duas sequencias. Equivalente a +=
+# print(color_names)
 
+# ##remove, clear
+# color_names.remove('green') #remove o primeiro elemento com o valor especificado
 
+# color_names.clear() #deleta todos os elementos. Semelhante a list[:] = []
 
+# ##count, reverse
+# numbers = list(range(0,10))
+
+# for i in range(1, 6):
+#    print(f'{i} aparece {numbers.count(i)} vezes.') #mostra o numero de vezes que é encontrado
+
+# numbers.reverse() #apenas invertida, não cria uma copia invertida.
+# print(numbers)
+
+#Simulando pilhas com listas
 
 
