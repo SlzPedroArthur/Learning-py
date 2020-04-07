@@ -22,3 +22,5 @@ dictionary['Nome'] = 'Arthur'
 #Criando um dicionario vazio
 lista_telefonica = {}
 print (type(lista_telefonica))
+
+
