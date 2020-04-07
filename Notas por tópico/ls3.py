@@ -194,4 +194,37 @@
 # numbers.reverse() #apenas invertida, não cria uma copia invertida.
 # print(numbers)
 
-#Simulando pilhas com listas
+# #Simulando pilhas com listas
+# stack = []
+# stack.append('Anna')
+# stack.append('Carlos')
+# stack.append('Fernando')
+# print(stack)
+
+# stack.pop()
+# print(stack)
+
+#Lista
+lista = []
+
+for item in range(1, 6):
+   lista.append(item)
+
+print(lista)
+
+lista = [numbers for numbers in range(0, -11, -2)]
+print(lista)
+
+lista = [numbers ** 3 for numbers in range(1, 6)]
+print(lista)
+
+lista = [item for item in range(1, 11) if item % 2 == 0]
+print(lista)
+
+alunos = ['Geraldo', 'Ricardo', 'Anna', 'Pricila']
+
+alunos = [item.upper() for item in alunos]
+print(alunos)
+
+#Criador de Expressões
+
