@@ -195,5 +195,3 @@
 # print(numbers)
 
 #Simulando pilhas com listas
-
-
