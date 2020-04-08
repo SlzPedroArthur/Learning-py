@@ -5,7 +5,10 @@ def carregaArquivoLista(caminhoDoArquivo):
    countries = open(caminhoDoArquivo, 'r')
    countries_list = []
    print(countries_list)
-   
+   for line in countries:
+      line = line.strip()
+      countries_list.append(line)
+
    countries.close()
    return countries_list   
 
@@ -41,11 +44,16 @@ def rodadaJogo(countries_list, points, answers_list):
       return False
 
 
-# def writeMyScore(points):
-#    f = open('scores.txt', 'w')
-#    participante = input('Nome: ')
-#    f.write(participante + ',' + points + '\n')
-#    for line in f:
+def writeMyScore(points):
+   f = open('scores.txt', 'w')
+   participante = input('\nNome: ')
+   f.write('\n' + points + ',' + participante)
+   
+   
+
+def displayScore(scoreList, position):
+   print('')
+   
 
 print ('----Jogo dos paises----\n O jogo consiste em você escrever o maior número de paises diferentes EM INGLES')
 print('Você ganha um ponto para cada pais lembrado')
