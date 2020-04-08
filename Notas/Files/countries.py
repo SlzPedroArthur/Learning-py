@@ -62,7 +62,7 @@ answers_list = []
 points = 0
 jogo = True
 
-countries_list = carregaArquivoLista('Notas/countries.txt')
+countries_list = carregaArquivoLista('Notas/Files/countries.txt')
 
 print(countries_list)
 while(jogo == True):
