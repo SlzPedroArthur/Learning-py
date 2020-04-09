@@ -37,5 +37,25 @@ for i in range(100):
    numbers[i] = random.randrange(1,10000)
 
 numbers.sort()
+print(numbers)
 #Busca binária
-key = input('Selecione um número:')
+def binarySearch(numbers, key):
+   mid = len(numbers) // 2
+   if key != numbers[mid]:
+      if key >= numbers[mid]:
+         binarySearch(numbers[mid:], key)
+         if numbers == key : return True
+      else:
+         binarySearch(numbers[:mid], key)
+         if numbers == key : return True
+      return False
+   return True
+key = int(input('Selecione um número:'))
+
+result = binarySearch(numbers, key)
+
+if result:
+   print('ok')
+else:
+   print('Nope')
+
