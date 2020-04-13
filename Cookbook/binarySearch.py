@@ -1,35 +1,22 @@
 """
-Given a sorted array arr[] of N integers and a number K is given. The task is to check if the element K is present in the array or not.
-
-Input:
-First line of input contains number of testcases T. For each testcase, first line of input contains number of elements in the array and the number K seperated by space. Next line contains N elements.
-
-Output:
-For each testcase, if the element is present in the array print "1" (without quotes), else print "-1" (without quotes).
-
-Constraints:
-1 <= T <= 100
-1 <= N <= 106
-1 <= K <= 106
-1 <= arr[i] <= 106
-
-Example:
-Input:
-2
-5 6
-1 2 3 4 6
-5 2
-1 3 4 5 6
-
-Output:
-1
--1
-
-Explanation:
-Testcase 1: Since, 6 is present in the array at index 4 (0-based indexing), so output is 1.
-Testcase 2: Since, 2 is not present in the array, so output is -1.
+Text.
 """
 import random
+
+"""Busca binária"""
+def binarySearch(inputList, key):
+   first = 0
+   last = len(inputList) - 1
+   sts = False
+   
+   while(first <= last and sts == False):
+      mid = (first + last) // 2
+      
+      if inputList[mid] == key:
+         sts = True
+      elif
+
+"""Aplicação"""
 
 #Criando lista com valores 'aleatórios'
 numbers = list(range(100))
@@ -38,24 +25,11 @@ for i in range(100):
 
 numbers.sort()
 print(numbers)
-#Busca binária
-def binarySearch(numbers, key):
-   mid = len(numbers) // 2
-   if key != numbers[mid]:
-      if key >= numbers[mid]:
-         binarySearch(numbers[mid:], key)
-         if numbers == key : return True
-      else:
-         binarySearch(numbers[:mid], key)
-         if numbers == key : return True
-      return False
-   return True
-key = int(input('Selecione um número:'))
 
-result = binarySearch(numbers, key)
+#Recebendo entrada do usuário
+key = int(input('Selecione um número: '))
 
-if result:
-   print('ok')
-else:
-   print('Nope')
+result = binarySearch(numbers, len(numbers), key)
+
+print(f'\nResultado: {numbers[result]}')
 
