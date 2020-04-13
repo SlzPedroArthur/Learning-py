@@ -1,5 +1,5 @@
 """
-Text.
+Uma abordagem muito comum para buscas lineares é o algoritmo de busca binária. Sua complexidade é de O(log n) em listas ordenadas, ou seja, em listas com muitos valores é melhor utilizar a busca binária.
 """
 import random
 
@@ -14,7 +14,10 @@ def binarySearch(inputList, key):
       
       if inputList[mid] == key:
          sts = True
-      elif
+      elif key < inputList[mid]:
+         last = mid - 1
+      else: first = mid + 1
+   return sts
 
 """Aplicação"""
 
@@ -29,7 +32,8 @@ print(numbers)
 #Recebendo entrada do usuário
 key = int(input('Selecione um número: '))
 
-result = binarySearch(numbers, len(numbers), key)
+result = binarySearch(numbers, key)
 
-print(f'\nResultado: {numbers[result]}')
+if result: print('Found!')
+else: print('Not Found!')
 
