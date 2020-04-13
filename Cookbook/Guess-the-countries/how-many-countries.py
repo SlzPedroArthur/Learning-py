@@ -4,7 +4,6 @@ def carregaArquivoLista(caminhoDoArquivo):
 
    countries = open(caminhoDoArquivo, 'r')
    countries_list = []
-   print(countries_list)
    for line in countries:
       line = line.strip()
       countries_list.append(line)
@@ -12,19 +11,8 @@ def carregaArquivoLista(caminhoDoArquivo):
    countries.close()
    return countries_list   
 
-def listaPaises(countries_list):
-   print('Escolha uma letra: ')
-   letter = getch.getch()
-   print('\n')
-   print (f'Paises com a letra {letter}\n:')
-
-   for country in countries_list:
-      if country[0] == letter:
-         print(country)
-
 def rodadaJogo(countries_list, points, answers_list):
    
-   answer = []
    op = 'n'
 
    while op != 'y':
@@ -44,27 +32,26 @@ def rodadaJogo(countries_list, points, answers_list):
       return False
 
 
-def writeMyScore(points):
-   f = open('scores.txt', 'w')
-   participante = input('\nNome: ')
-   f.write('\n' + points + ',' + participante)
+# def writeMyScore(points):
+#    f = open('scores.txt', 'w')
+#    participante = input('\nNome: ')
+#    f.write('\n' + points + ',' + participante)
    
    
 
-def displayScore(scoreList, position):
-   print('')
+# def displayScore(scoreList, position):
+#    print('')
    
 
 print ('----Jogo dos paises----\n O jogo consiste em você escrever o maior número de paises diferentes EM INGLES')
-print('Você ganha um ponto para cada pais lembrado')
+print('Você ganha um ponto para cada pais lembrado.')
 
 answers_list = []
 points = 0
 jogo = True
 
-countries_list = carregaArquivoLista('Notas/Files/countries.txt')
+countries_list = carregaArquivoLista('Cookbook/Guess-the-countries/countries.txt')
 
-print(countries_list)
 while(jogo == True):
    jogo = rodadaJogo(countries_list, points, answers_list)
    if jogo:
