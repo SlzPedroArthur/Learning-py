@@ -11,7 +11,7 @@ file = open(flashcard_filename, 'r')
 
 question_dict = {}
 
-for line in file:
+for line in file:       
    entry = line.strip().split(',')
    question = entry[0]
    answer = entry[1]

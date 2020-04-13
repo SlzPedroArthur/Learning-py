@@ -31,11 +31,20 @@ def rodadaJogo(countries_list, points, answers_list):
    else:
       return False
 
+# def fileToDictcionary(file):
+#       question_dict = {}
+#       for line in file:   
+#          entry = line.strip().split(',')
+#          question = entry[0]
+#          answer = entry[1]
+#          question_dict[question] = answer
+#          return question_dict
 
 # def writeMyScore(points):
-#    f = open('scores.txt', 'w')
+#    file = open('Cookbook/05-Guess-the-countries/scores.txt', 'w')
 #    participante = input('\nNome: ')
-#    f.write('\n' + points + ',' + participante)
+#    question_dict = fileToDictcionary(file)
+   
    
    
 
@@ -50,7 +59,7 @@ answers_list = []
 points = 0
 jogo = True
 
-countries_list = carregaArquivoLista('Cookbook/Guess-the-countries/countries.txt')
+countries_list = carregaArquivoLista('Cookbook/05-Guess-the-countries/countries.txt')
 
 while(jogo == True):
    jogo = rodadaJogo(countries_list, points, answers_list)
@@ -59,8 +68,9 @@ while(jogo == True):
       print(f'\nBoa moleque!\nPontos: {points}')
    
    else:
-      print('\nPerdeu!')
+      print(f'\nFim de Jogo! Você fez {points}')
 
-print('Fim de Jogo!')
 
 print('Salve sua classificação:')
+
+# writeMyScore(points)

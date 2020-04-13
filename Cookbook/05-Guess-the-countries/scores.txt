@@ -1,4 +1,1 @@
-Anna,98.4
-Alan,100.0
-Caio,32.4
-Pedro,2.1
+2,Anna
