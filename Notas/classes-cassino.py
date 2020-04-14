@@ -16,6 +16,18 @@ g = Greeter('Anna')
 g.hello()
 g.goodbye()
 
+#Dice 
+class Die(object):
+   def __init__(self, lados):
+      self.lados = lados
+   def roll(self):
+      return random.randint(1,self.lados)
+
+die = Die(20)
+
+print(die.roll())
+print(die.roll())
+print(die.roll())
 #Deck of Cards class
 class Deck(object):
    def shuffle(self):
@@ -37,3 +49,11 @@ class Deck(object):
 d = Deck()
 d.shuffle()
 print(d.deal())   
+
+"""
+Resumindo:
+
+1. Funções: encapsular e nomear partes úteis do trabalho
+2. Classes: encapsular e nomear partes relacionadas de funcionalidades
+3. Modulos: encapsular classes que possuem relação
+"""
