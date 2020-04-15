@@ -1,12 +1,12 @@
+import os
 #Abre o arquivo e cria dicionário com os pontos
 
-words_file = 'wordsindex.txt'
+module_dir = os.path.dirname(__file__)
+WORD_LIST = os.path.join(module_dir, 'wordsindex.txt')
 
-file = open(words_file, 'r')
-wordlist = file.readlines() #Esse método lê até EOF e retorna uma lista com as linhas
-file.close()
+wordlist = open(WORD_LIST).readlines()
 
-# Todas as palavras com letras minúsculas e sem espáços
+#Get rid of newline
 wordlist = [word.lower().strip() for word in wordlist]
 
 #Dicionário contendo os pontos ligados a cada letra
