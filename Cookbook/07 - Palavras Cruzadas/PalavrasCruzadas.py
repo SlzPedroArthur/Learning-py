@@ -1,10 +1,12 @@
+#Abre o arquivo e cria dicionário com os pontos
+
 words_file = 'wordsindex.txt'
 
 file = open(words_file, 'r')
 wordlist = file.readlines() #Esse método lê até EOF e retorna uma lista com as linhas
 file.close()
 
-# Todas as palavras
+# Todas as palavras com letras minúsculas e sem espáços
 wordlist = [word.lower().strip() for word in wordlist]
 
 #Dicionário contendo os pontos ligados a cada letra

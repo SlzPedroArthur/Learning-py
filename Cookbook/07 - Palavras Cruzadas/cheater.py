@@ -1,29 +1,39 @@
 import sys
-import scrabble
+import PalavrasCruzadas
 
-if __name__ == "__main__":
-   if len(sis.argv) < 2:
-      print('Usage:scrabble.py [RACK[]')
-      sys.exit(1)
+#Salva as letras da mão numa lista e verifica letra por letra se ela pode ser formada
+def valid_word(word, rack):
+   available_letters = rack[:] #selecionando lista inteira
 
-      rack = list(sys.argv[1].lower())
-      valid_words = []
+   for letter in word:
+      if letter not in available_letters:
+         return False
+      
+   return True
 
-      for word in scrabble.wordlist:
-         available_letters = rack[:]
+#Calcula os pontos para a palavra recebida
+def compute_score(word):
+   score = 0
+   for letter in word:
+      score = score + PalavrasCruzadas.scores[letter]
+   return score
 
-         valid = True
-         for letter in word.lower():
-            if letter not in available_letters:
-               valid = False
-               break
-            available_letters.remove(letter)
-         
-         if valid:
-            score = 0
-            for letter in word:
-               score = score + scrabble.scores[letter]
-               valid_words.append((score,word))
+#Esse script recebe como argumento na linha de comando  as letras que você possui na sua mão durante o jogo
+if len(sys.argv) < 2:
+   print('Usage: scrabble.py [RACK]')
+   sys.exit(1)
 
-      for play in srted(valid_words):
-         print('%d %s' % (play[0], play[1]))
+   #Salva as palavras disponíveis do usuário numa lista
+   rack = list(sys.argv[1].lower())
+   valid_words = []
+
+   for word in PalavrasCruzadas.wordlist:
+      if valid_word(word, rack): #se 'word' pode ser feito com 'rack'
+         score = compute_score(word)
+         valid_words.append([score, word]) #Guarda as palavras disponíveis numa lista
+   
+   valid_words.sort() #Temos a palavras com mais pontos primeiro
+   for play in valid_words:
+      score = play[0]
+      word = play[1]
+      print(word + ': ' + str(score))
