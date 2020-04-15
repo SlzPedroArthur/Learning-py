@@ -1,39 +1,50 @@
-import sys
-import PalavrasCruzadas
+from bisect import bisect_left
+from itertools import combinations
+from time import time
 
-#Salva as letras da mão numa lista e verifica letra por letra se ela pode ser formada
-def valid_word(word, rack):
-   available_letters = rack[:] #selecionando lista inteira
+def loadvars():
+  f = open('wordsindex.txt','r')
+  anadict = f.read().split('\n')
+  f.close()
+  return anadict
 
-   for letter in word:
-      if letter not in available_letters:
-         return False
-      
-   return True
+scores = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1, 
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4, 
+         "x": 8, "z": 10}
 
-#Calcula os pontos para a palavra recebida
-def compute_score(word):
-   score = 0
-   for letter in word:
-      score = score + PalavrasCruzadas.scores[letter]
-   return score
+def score_word(word):
+  return sum([scores[c] for c in word])
 
-#Esse script recebe como argumento na linha de comando  as letras que você possui na sua mão durante o jogo
-if len(sys.argv) < 2:
-   print('Usage: scrabble.py [RACK]')
-   sys.exit(1)
+def findwords(rack, anadict):
+  rack = ''.join(sorted(rack))
+  foundwords = []
+  for i in xrange(2,len(rack)+1):
+    for comb in combinations(rack,i):
+      ana = ''.join(comb)
+      j = bisect_left(anadict, ana)
+      if j == len(anadict):
+        continue
+      words = anadict[j].split()
+      if words[0] == ana:
+        foundwords.extend(words[1:])
+  return foundwords
 
-   #Salva as palavras disponíveis do usuário numa lista
-   rack = list(sys.argv[1].lower())
-   valid_words = []
-
-   for word in PalavrasCruzadas.wordlist:
-      if valid_word(word, rack): #se 'word' pode ser feito com 'rack'
-         score = compute_score(word)
-         valid_words.append([score, word]) #Guarda as palavras disponíveis numa lista
-   
-   valid_words.sort() #Temos a palavras com mais pontos primeiro
-   for play in valid_words:
-      score = play[0]
-      word = play[1]
-      print(word + ': ' + str(score))
+if __name__ == "__main__":
+  import sys
+  if len(sys.argv) == 2:
+    rack = sys.argv[1].strip()
+  else:
+    print ("""Usage: python cheat_at_scrabble.py <yourrack>""")
+    exit()
+  t = time()
+  anadict = loadvars()
+  print ("Dictionary loading time:"),(time()-t)
+  t = time()
+  foundwords = set(findwords(rack, anadict))
+  scored = [(score_word(word), word) for word in foundwords]
+  scored.sort()
+  for score, word in scored:
+    print ("%d\t%s" % (score,word))
+  print ("Time elapsed:", (time()-t))
