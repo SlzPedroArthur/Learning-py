@@ -1,47 +1,16 @@
-f = open('Notas/Files/countries.txt', 'r')
+#Nesta sessão iremos entender as noções de arquivos e dados persistentes
 
-#Imprimindo arquivo
-for line in f:
-   line = line.strip()
-   print(line)
 
-#Criando uma lista para o conteudo do arquivo
-countries_list = []
-for line in f:
-   countries_list.append(line)
+with open('accounts.txt', mode = 'w') as accounts:
+   accounts.write('100 Jones 24.98\n')
+   accounts.write('200 Doe 345.67\n')
+   accounts.write('300 White 0.00\n')
+   accounts.write('400 Stone -42.16\n')
+   accounts.write('500 Rich 224.62\n')
+#with implicitamente chama o objeto 'close'
 
-f.close()
-#Imprimindo os paises com a letra 'T'
-for country in countries_list:
-   if country[0] == "T":
-      print(country)
-
-#Escrevendo em arquivos
-file = open('Notas/Files/scores.txt', 'w')
-
-while True:
-   participant = input('\nParticipante: ')
-
-   if participant == 'quit':
-      print('Saindo...')
-      break
-
-   score = input('Pontos de ' + participant + ':' )
-
-   file.write(participant + ',' + score + '\n')
-
-file.close()
-
-#Salvando arquivo num dicionário
-f = open('scores.txt', 'r')
-
-participants = {}
-
-for line in f:
-   entry = (line.strip().split(','))
-   participant = entry[0]
-   score = entry[1]
-   participants[participants] = score
-
-f.close()
-
+with open('accounts.txt', mode = 'r') as accounts:
+   print(f'{"Conta":<10}{"Nome":<10}{"Saldo":>10}')
+   for record in accounts:
+      conta, nome, saldo = record.split()
+      print(f'{conta:<10}{nome:<10}{saldo:>10}')

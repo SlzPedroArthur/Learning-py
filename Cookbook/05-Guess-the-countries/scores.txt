@@ -1,0 +1,8 @@
+2,Anna
+1,Pedro
+9,João 
+10,Arthur
+8,Clara
+2,Vieira
+13,Espertao
+3,Helena
