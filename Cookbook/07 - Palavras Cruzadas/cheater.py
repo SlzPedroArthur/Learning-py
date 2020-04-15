@@ -1,33 +1,31 @@
 import sys 
 import Scrabble
 
-if __name__ == '__main__': #Verifica se esse é a main????
-    if len(sys.argv) < 2:
-      print('Use: cheater.py [SUAS_LETRAS]')
-      sys.exit(1)
+if __name__ == "__main__":
+  #Se o número de argumentos for menor que 2
+  if len(sys.argv) < 2:
+    print('Use: cheater.py [LETRAS]')
+    sys.exit(1)
 
-    #Recebendo o argumento do usuário
-    userLetters = list(sys.argv[1].lower())
-    #Criando lista para salvar as palavras válidas
-    validWords = []
+  letrasUsuario = list(sys.argv[1].lower())
+  palavrasValidas = []
 
-    for word in Scrabble.wordlist:
-      #Fazendo uma cópia das letras disponíveis para cada nova palavra. 
-      # Assim, podemos manipular sem perder as lista original
-      availableLetters = userLetters[:]
-      status = True
-      for letter in word.lower():
-        if letter not in availableLetters:
-          status = False
-          break
-        availableLetters.remove(letter)
+  for palavra in Scrabble.wordlist:
+    
+    letrasDisponiveis = letrasUsuario[:]
+    deuMatch = True
 
-      #Calcula os pontos para cada palavra
-      if status:
-        score = 0
-        for letter in word:
-          score = score + Scrabble.scores[letter]
-        validWords.append((score, word))
+    for letra in palavra.lower():
+      if letra not in letrasDisponiveis:
+        deuMatch = False
+        break
+      letrasDisponiveis.remove(letra)
 
-    for play in sorted(validWords):
-      print("%d %s" % (play[0], play[1]))    
+    if deuMatch:
+      pontos = 0
+      for letra in palavra:
+        pontos = pontos + Scrabble.pontos[letra]
+      palavrasValidas.append((pontos, palavra))
+  
+  for jogada in sorted(palavrasValidas):
+    print("%d %s" % (jogada[0], jogada[1]))
