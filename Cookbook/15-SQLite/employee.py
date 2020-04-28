@@ -4,6 +4,7 @@ class Employee:
       self.last = last
       self.pay = pay
    
+   #As variáveis são usadas para criar os atributos 'email', 'fullname' e 'repr'
    @property
    def email(self):
       return '{}.{}@email.com'.format(self.first, self.last)
