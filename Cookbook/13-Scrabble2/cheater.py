@@ -1,7 +1,7 @@
 import scrabble
 import string
 
-def existsUserLetters(wordlist, userLetters):
+def exists_user_letters(wordlist, userLetters):
    avalaibleWords = []
    for word in wordlist:
       if userLetters in word:
@@ -9,7 +9,7 @@ def existsUserLetters(wordlist, userLetters):
    return avalaibleWords
 
 #All letters that don't appear dooble
-def existsDouble(wordlist):
+def exists_double(wordlist):
    notExists = []
    for letter in string.ascii_lowercase:
       exists = False
@@ -21,16 +21,38 @@ def existsDouble(wordlist):
    #print(notExists)
    return notExists
 
-def had_all_vowels(word):
+def has_all_vowels(word):
    vowels = 'aeiou'
    for vowel in vowels:
       if vowel not in word:
          return False
    return True
 
+def words_with_all_vowels(wordlist):
+   wordlist = []
+   for word in scrabble.wordlist:
+      if has_all_vowels(word):
+         wordlist.appeend(word)
+   return wordlist
 
+def is_palindrom(word):
+   for i in range(len(word)):
+      if word[i] != word[len(word) - 1 - i]:
+         return False
+   return True
 
+def palindroms_in_wordlist(wordlist):
+   palindroms = []
+   for word in scrabble.wordlist:
+      if is_palindrom(word):
+         palindroms.append(word)
+   return palindroms
+   
 userLetters = input("Insira suas letras: ")
 
-existsUserLetters(scrabble.wordlist, userLetters)
-existsDouble(scrabble.wordlist)
+palindroms_in_wordlist(scrabble.wordlist)
+exists_user_letters(scrabble.wordlist, userLetters)
+exists_double(scrabble.wordlist)
+
+
+
