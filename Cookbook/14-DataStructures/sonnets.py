@@ -4,6 +4,17 @@ my_words = [elem.strip().lower() for elem in open('sonnets_words.txt', 'r').read
 
 wordlist = [elem.strip().lower() for elem in open('wordsindex.txt', 'r').readlines()]
 
+#note:
+"""
+In the palidrom example we could have done:
+
+palindroms = [elem for elem in wordlist if elem == elem[::-1]]
+
+or for vowels
+
+allVowelsWordList = [elem for elem in wordlist if 'aeiou' in elem]
+
+"""
 wordset = set(wordlist)
 
 counter = 0
