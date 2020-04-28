@@ -24,4 +24,8 @@ for line in sonnets:
 
 sonnet_words = list(sonnet_words)
 sonnet_words.sort()
-f = open('sonnet_words.txt', 'w')
+
+f = open('sonnets_words.txt', 'w')
+for word in sonnet_words:
+   f.write(word + '\n')
+f.close()
