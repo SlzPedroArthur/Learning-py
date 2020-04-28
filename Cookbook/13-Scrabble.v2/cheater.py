@@ -30,29 +30,42 @@ def has_all_vowels(word):
 
 def words_with_all_vowels(wordlist):
    wordlist = []
-   for word in scrabble.wordlist:
+   for word in wordlist:
       if has_all_vowels(word):
          wordlist.appeend(word)
    return wordlist
 
 def is_palindrom(word):
-   for i in range(len(word)):
-      if word[i] != word[len(word) - 1 - i]:
-         return False
-   return True
+   if word == word[::-1]: #list(word) == list(reversed(word)):
+      return True
+   return False
 
 def palindroms_in_wordlist(wordlist):
    palindroms = []
-   for word in scrabble.wordlist:
+   for word in wordlist:
       if is_palindrom(word):
          palindroms.append(word)
    return palindroms
-   
+
+def longest_palindrom(wordlist):
+   longest = ""
+   for word in wordlist:
+      if word == word[::-1] and len(word) > len(longest): #list(word) == list(reversed(word))
+         longest = word
+   return longest
+
+def longest_word(wordlist):
+   longest = ""
+   for word in range(wordlist):
+      if len(longest) < len(word):
+         longest = word
+   return longest
+
 userLetters = input("Insira suas letras: ")
 
-palindroms_in_wordlist(scrabble.wordlist)
 exists_user_letters(scrabble.wordlist, userLetters)
 exists_double(scrabble.wordlist)
 
-
+palindroms = palindroms_in_wordlist(scrabble.wordlist)
+longest_word(palindroms)
 
