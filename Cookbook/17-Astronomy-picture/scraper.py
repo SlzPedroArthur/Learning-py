@@ -13,6 +13,7 @@ download_directory = "apod-pictures"
 
 to_visit = set((base_url,))
 visited = set()
+downloaded = set()
 
 while to_visit:
    #Pick a link to visit
@@ -24,15 +25,18 @@ while to_visit:
    #Extract links from link
    for link in BeautifulSoup(content, 'lxml').findAll('a'):
       absolute_link = urljoin(current_page, link['href'])
-      if absolute_link not in visited:
-         to_visit.add(absolute_link)
+      if absolute_link in visited:
+         print('Already!')
+         break
       else:
-         print('Already visited: ', absolute_link)
-
-      #Download img
-      for img in BeautifulSoup(content, 'lxml').findAll('img'):
-         img_href = urljoin(current_page, img['src'])
-         print('Downloading image: ', img_href)
-         img_name = img_href.split('/')[-1] #get the last one
-         urllib.request.urlretrieve(img_href, os.path.join(download_directory, img_name))
-
+         #Download img
+         for img in BeautifulSoup(content, 'lxml').findAll('img'):
+            img_href = urljoin(current_page, img['src'])
+            if img_href in downloaded:
+               print('NOPE!')
+               break
+            else:
+               downloaded.add(img_href)
+               print('Downloading image: ', img_href)
+               img_name = img_href.split('/')[-1] #get the last one
+               urllib.request.urlretrieve(img_href, os.path.join(download_directory, img_name))
