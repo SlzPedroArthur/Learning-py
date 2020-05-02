@@ -1,7 +1,7 @@
 from matplotlib import pyplot
 import string
 
-data = open('constitution.txt', 'r').read()
+data = open('mystery.txt', 'r').read()
 
 letter_counts = {}
 for char in string.ascii_lowercase:
@@ -20,7 +20,7 @@ for letter, count in sorted(frequencies):
    counts.append(count)
 
 xlocations = range(len(frequencies)) #xlocations is a list from 0 to the number of frequencies.
-width = 0.5 #the width of each bar in the chart
+width = 0.6 #the width of each bar in the chart
 pyplot.xticks([elem + width / 2 for elem in xlocations], labels) #calculate where along the x-axis the ticks for each bar should go. I want ticks to be in the center of bars
 pyplot.bar(xlocations, counts, width = width)
 
