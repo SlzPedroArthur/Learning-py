@@ -1,12 +1,17 @@
 from matplotlib import pyplot 
-import random
 
-x_values = [0, 3, 4, 15, 20, 200]
-y_values = [random.randint(0,30) for elem in x_values]
-pyplot.plot(x_values, y_values, 'o-')
+data = open('world-population.txt', 'r' ).readlines()
+years = []
+populations = []
+for point in data:
+   year, population = point.split()
+   years.append(year)
+   populations.append(population)
 
-pyplot.ylabel('Value')
-pyplot.xlabel('Time')
-pyplot.title('Test plot')
+pyplot.plot(years, populations, 'o-')
+pyplot.xlabel('Populacao mundial')
+pyplot.ylabel('Anos')
+pyplot.title('Demograia mundial\nEm milhões')
 pyplot.show()
+
 
