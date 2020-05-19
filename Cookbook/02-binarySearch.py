@@ -23,8 +23,6 @@ def binarySearch(inputList, key):
 
 #Criando lista com valores 'aleatórios'
 numbers = list(range(100))
-for i in range(100):
-   numbers[i] = random.randrange(1,10000)
 
 numbers.sort()
 print(numbers)
